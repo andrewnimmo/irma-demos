@@ -3,7 +3,7 @@ function start_session(type, lang, success_fun, cancelled_fun, error_fun) {
     $.get('../start_session.php?type=' + type + '&lang=' + lang, function(sessionpackagejson) {
         let sessionpackage = JSON.parse(sessionpackagejson);
         console.log(sessionpackage);
-        let options = {server: sessionpackage.sessionPtr.u.split('/irma')[0], token: sessionpackage.token, language: lang};
+        let options = {server: sessionpackage.sessionPtr.u.split('/irma/')[0], token: sessionpackage.token, language: lang};
         let promise = irma.handleSession(sessionpackage.sessionPtr, options);
 
         let success = function (data) {
