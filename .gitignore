@@ -1,0 +1,8 @@
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+.\#
+# 
+config.php
+build
+node_modules
