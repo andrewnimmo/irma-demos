@@ -2,7 +2,6 @@
 require_once 'config.php';
 
 date_default_timezone_set('UTC');
-$protocol = explode(':', IRMA_SERVER_URL, 2)[0];
 
 $sigrequests = [
     'email-signature' => [
@@ -135,7 +134,7 @@ $sprequests = [
 ];
 
 function start_session($type, $lang) {
-    global $sprequests, $sigrequests, $protocol;
+    global $sprequests, $sigrequests;
 
     if (array_key_exists($type, $sprequests))
         $sessionrequest = $sprequests[$type];
@@ -147,7 +146,7 @@ function start_session($type, $lang) {
     $jsonsr = json_encode($sessionrequest);
 
     $api_call = array(
-        $protocol => array(
+        'http' => array(
             'method' => 'POST',
             'header' => "Content-type: application/json\r\n"
                 . "Content-Length: " . strlen($jsonsr) . "\r\n"
