@@ -1,4 +1,4 @@
 <?php
 
-define('IRMA_SERVER_URL', 'http://localhost:8088');
-define('API_TOKEN', '');
+define('IRMA_SERVER_URL', 'https://irmaserver.identity.broker');
+define('API_TOKEN', 'RPNedLaMgz97uqBXP9ZR');
